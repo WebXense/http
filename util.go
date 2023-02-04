@@ -51,6 +51,7 @@ func doRequest[T any](req *http.Request) (status int, body *T, err error) {
 		return 0, nil, err
 	}
 
+	body = new(T)
 	err = json.Unmarshal(bodyBytes, body)
 	if err != nil {
 		return 0, nil, err
