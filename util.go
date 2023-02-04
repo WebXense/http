@@ -8,9 +8,10 @@ import (
 )
 
 func encodeParams(params map[string]string) (encoded string) {
-	if len(params) > 0 {
-		encoded = "?"
+	if len(params) == 0 {
+		return ""
 	}
+	encoded = "?"
 	for key, value := range params {
 		encoded += key + "=" + value + "&"
 	}
