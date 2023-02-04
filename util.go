@@ -28,11 +28,11 @@ func handleRequestBody(requestBody interface{}) *bytes.Buffer {
 	if requestBody != nil {
 		reqBody, err := json.Marshal(requestBody)
 		if err != nil {
-			return nil
+			return bytes.NewBuffer(nil)
 		}
 		return bytes.NewBuffer(reqBody)
 	}
-	return nil
+	return bytes.NewBuffer(nil)
 }
 
 func doRequest[T any](req *http.Request) (status int, body *T, err error) {
